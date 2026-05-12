@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV — Puji Ahmad Maulana</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #1a1a2e;
+      --ink2: #3d3d5c;
+      --muted: #7a7a9a;
+      --accent: #c0963c;
+      --accent-light: #f5edd8;
+      --bg: #faf9f6;
+      --white: #ffffff;
+      --border: #e4e0d8;
+    }
+
+    body {
+      background: var(--bg);
+      font-family: 'DM Sans', sans-serif;
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--ink);
+      color: var(--white);
+      padding: 56px 0 48px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      border: 1px solid rgba(192,150,60,0.2);
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -40px;
+      width: 240px; height: 240px;
+      border-radius: 50%;
+      border: 1px solid rgba(192,150,60,0.12);
+    }
+
+    .header-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+      font-weight: 500;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 6vw, 52px);
+      font-weight: 600;
+      line-height: 1.1;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      color: rgba(255,255,255,0.55);
+      font-weight: 300;
+      margin-bottom: 36px;
+    }
+
+    .contacts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .contact-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 100px;
+      padding: 7px 16px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .contact-pill:hover { background: rgba(192,150,60,0.2); color: var(--accent); }
+    .contact-pill svg { opacity: 0.6; flex-shrink: 0; }
+
+    /* ── LAYOUT ── */
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 48px 40px 80px;
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 48px 56px;
+    }
+
+    .left { grid-column: 1; }
+    .right { grid-column: 2; }
+
+    /* ── SECTION ── */
+    section { margin-bottom: 44px; }
+
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── ABOUT ── */
+    .about-text {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink2);
+      font-weight: 300;
+    }
+
+    /* ── EXPERIENCE ── */
+    .exp-item { display: flex; gap: 20px; }
+
+    .exp-line {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      flex-shrink: 0;
+    }
+    .exp-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+    .exp-tail {
+      width: 1px;
+      flex: 1;
+      background: var(--border);
+      margin-top: 6px;
+    }
+
+    .exp-body { padding-bottom: 32px; }
+    .exp-company {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 3px;
+    }
+    .exp-role {
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+    .exp-period {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .exp-desc {
+      font-size: 14px;
+      color: var(--ink2);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* ── EDUCATION ── */
+    .edu-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 22px;
+      position: relative;
+      overflow: hidden;
+    }
+    .edu-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--accent);
+    }
+    .edu-degree {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .edu-major {
+      font-size: 13px;
+      color: var(--ink2);
+      margin-bottom: 4px;
+    }
+    .edu-uni {
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .edu-year {
+      position: absolute;
+      top: 20px; right: 22px;
+      font-size: 11px;
+      background: var(--accent-light);
+      color: var(--accent);
+      padding: 3px 10px;
+      border-radius: 100px;
+      font-weight: 500;
+    }
+
+    /* ── SKILLS ── */
+    .skill-list { display: flex; flex-direction: column; gap: 12px; }
+
+    .skill-item { }
+    .skill-name {
+      font-size: 13px;
+      color: var(--ink2);
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .skill-bar {
+      height: 3px;
+      background: var(--border);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+    .skill-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), #e8b84b);
+      border-radius: 100px;
+      animation: fillBar 1.2s ease forwards;
+      transform-origin: left;
+    }
+    @keyframes fillBar {
+      from { transform: scaleX(0); }
+      to { transform: scaleX(1); }
+    }
+
+    /* ── COMPETENCIES ── */
+    .comp-grid { display: flex; flex-direction: column; gap: 8px; }
+    .comp-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--ink2);
+      line-height: 1.5;
+    }
+    .comp-bullet {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+
+    /* ── LOCATION ── */
+    .info-block { display: flex; flex-direction: column; gap: 10px; }
+    .info-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--ink2);
+    }
+    .info-icon { color: var(--accent); flex-shrink: 0; margin-top: 1px; }
+
+    /* ── PRINT ── */
+    @media print {
+      body { background: white; }
+      header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .skill-fill { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+
+    @media (max-width: 640px) {
+      main { grid-template-columns: 1fr; padding: 32px 24px 60px; gap: 0; }
+      .right { grid-column: 1; }
+      .header-inner { padding: 0 24px; }
+      .contacts { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <p class="eyebrow">Curriculum Vitae</p>
+    <h1>Puji Ahmad<br>Maulana</h1>
+    <p class="subtitle">Staf Administrasi &amp; Perpajakan &nbsp;·&nbsp; Pontianak, Kalimantan Barat</p>
+    <div class="contacts">
+      <a class="contact-pill" href="mailto:Pujiahmad.m145@gmail.com">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+        Pujiahmad.m145@gmail.com
+      </a>
+      <a class="contact-pill" href="tel:0889674242339">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.06 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16v.92z"/></svg>
+        0889-6742-42339
+      </a>
+      <span class="contact-pill">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Pontianak, Kalimantan Barat
+      </span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- LEFT COLUMN -->
+  <div class="left">
+
+    <section>
+      <p class="section-label">Tentang Saya</p>
+      <p class="about-text">
+        Lulusan D3 Administrasi Bisnis Politeknik Negeri Pontianak dengan pengalaman dua tahun di bidang administrasi umum dan perpajakan. Terbiasa menangani pelaporan SPT PPN dan PPh bulanan, pembuatan faktur pajak, serta administrasi BPJS Ketenagakerjaan. Berorientasi pada detail, terorganisir, dan siap memberikan kontribusi nyata bagi tim.
+      </p>
+    </section>
+
+    <section>
+      <p class="section-label">Pengalaman Kerja</p>
+      <div class="exp-item">
+        <div class="exp-line">
+          <div class="exp-dot"></div>
+          <div class="exp-tail"></div>
+        </div>
+        <div class="exp-body">
+          <p class="exp-company">PT Cipta Jasa Selaras</p>
+          <p class="exp-role">Staf Umum</p>
+          <p class="exp-period">2023 — 2025 &nbsp;·&nbsp; ±2 Tahun</p>
+          <p class="exp-desc">
+            Mengelola administrasi umum kantor, menyiapkan dan melaporkan SPT PPN dan PPh bulanan, membuat faktur pajak, serta mengurus tagihan BPJS Ketenagakerjaan. Memastikan seluruh dokumen perpajakan tersimpan rapi dan pelaporan berjalan tepat waktu sesuai regulasi yang berlaku.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <p class="section-label">Pendidikan</p>
+      <div class="edu-card">
+        <span class="edu-year">2025</span>
+        <p class="edu-degree">D3 Administrasi Bisnis</p>
+        <p class="edu-major">Jurusan Administrasi Bisnis</p>
+        <p class="edu-uni">Politeknik Negeri Pontianak</p>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- RIGHT COLUMN -->
+  <div class="right">
+
+    <section>
+      <p class="section-label">Keahlian Teknis</p>
+      <div class="skill-list">
+        <div class="skill-item">
+          <div class="skill-name"><span>Microsoft Office</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name"><span>Google Workspace</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:85%; animation-delay:0.1s"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name"><span>Perpajakan (PPN &amp; PPh)</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:80%; animation-delay:0.2s"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name"><span>Administrasi BPJS</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:80%; animation-delay:0.3s"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name"><span>Faktur &amp; Penagihan</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:75%; animation-delay:0.4s"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <p class="section-label">Kompetensi</p>
+      <div class="comp-grid">
+        <div class="comp-item"><span class="comp-bullet"></span><span>Pelaporan SPT PPN &amp; PPh bulanan</span></div>
+        <div class="comp-item"><span class="comp-bullet"></span><span>Pembuatan faktur pajak</span></div>
+        <div class="comp-item"><span class="comp-bullet"></span><span>Perhitungan dan analisis pajak</span></div>
+        <div class="comp-item"><span class="comp-bullet"></span><span>Tagihan BPJS Ketenagakerjaan</span></div>
+        <div class="comp-item"><span class="comp-bullet"></span><span>Pengarsipan dan manajemen dokumen</span></div>
+        <div class="comp-item"><span class="comp-bullet"></span><span>Google Docs, Spreadsheet &amp; Slides</span></div>
+      </div>
+    </section>
+
+    <section>
+      <p class="section-label">Informasi</p>
+      <div class="info-block">
+        <div class="info-row">
+          <svg class="info-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <span>Tersedia untuk mulai bekerja segera</span>
+        </div>
+        <div class="info-row">
+          <svg class="info-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Pontianak, Kalimantan Barat</span>
+        </div>
+        <div class="info-row">
+          <svg class="info-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <span>Fresh graduate, siap bergabung</span>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+</body>
+</html>
